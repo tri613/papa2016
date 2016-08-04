@@ -1,0 +1,112 @@
+%full{
+	width: 100%;
+	height: 100%;
+}
+%absolute{
+	position: absolute;
+	height: 100%;width: 100%;
+	top: 0;left: 0;
+}
+$btn-color:#72b3c3;
+$speed: 0.4s;
+$easing:cubic-bezier(0.22, 0.61, 0.36, 1);
+// $animation: dash $speed linear infinite,fillin $speed linear infinite;
+@mixin animate($animation) {
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
+@mixin transition($duration,$ease:ease-in) {
+  transition: all $duration $ease;
+  -webkit-transition: all $duration $ease;
+}
+
+@mixin fontFamily{
+	font-family:fantasy,Microsoft JhengHei; 
+}
+
+body{
+	@include fontFamily;
+	@extend %full;
+	margin:0; padding:0;
+	.wrapper{
+		@extend %absolute;
+		.page{
+			position: relative;
+			background: rgba(255, 229, 182, 1);
+			height: 100vh;
+			z-index: 100;
+
+			&#main{
+				@extend %absolute;
+				background: rgba(255, 229, 182, 0.26);
+				text-align: center;
+				.mask{
+					@extend %absolute;
+					background: rgba($btn-color,0.8);
+					z-index: 1000;
+					font-size: 8vw;
+					margin: 0;
+					color:#FFF;
+					&::after{
+						content: '';
+						height: 100%;
+						display: inline-block;
+						vertical-align: middle;
+					}
+					h1{
+						display: inline-block;
+						vertical-align: middle;
+					}
+				}
+				.content{
+					top: 50%;
+				    left: 50%;
+				    width: 100%;
+				    position: absolute;
+				    transform: translate(-50%,-50%);
+					h1{
+				    	// transform: translate(0,-50px);
+						font-size: 0vw;
+						// opacity: 0;
+						color:transparent;
+						margin: 0;
+						@include transition($speed,$easing);
+						&.active{
+				    		// transform: translate(0,0);
+							font-size: 12vw;
+    						color: #FFF;
+							// opacity: 1;
+						}
+					}
+					#next_btn{
+						@include fontFamily;
+				    	transform: translate(0,-50px);
+						opacity: 0;
+						padding: 10px 30px;
+					    background: transparent;
+					    border: 1px solid $btn-color;
+					    border-radius: 30px;
+					    color: $btn-color;
+					    font-size: 2vw;
+					    font-weight: bold;
+					    cursor: pointer;
+						@include transition(0.6s,$easing);
+						&.active{
+							opacity: 1;
+				    		transform: translate(0,0);
+						}
+						&:hover{
+							// border-color:#FFF;
+							color:#FFF;
+							background-color:$btn-color;
+						}
+					}
+				}
+			}
+
+		}
+
+	}
+}
+
