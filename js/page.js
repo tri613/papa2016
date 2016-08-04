@@ -1,11 +1,12 @@
 $(function(){
+	//youtube background
 	$('#main').tubular({
 		videoId: 'CYXG9rG0Jf0',
 		mute: true,
 		start:30
 	})
 	.on('ready',function(){
-		var $mask = $('#main .mask');
+		var $mask = $('#fixed-mask');
 		$mask.animate({
 			height:0,
 		},800,'easeInOutExpo',function(){
@@ -15,6 +16,7 @@ $(function(){
 		});
 	}); 
 
+	//sanga effects
 	$('.sanga').each(function(i,v){
 		var color = $(this).attr('data-color');
 		var top = $(this).attr('data-top');
@@ -42,12 +44,18 @@ $(function(){
 		});
 	});
 
-
+	//goto btns
 	$('#next_btn').on('click',function(){
 		$('html,body').animate({
             scrollTop: $('#gift').offset().top
         }, 800, "easeInOutExpo");
 	});
+	$('.msg-btn').click(function(){
+		var to = $(this).attr('data-value');
+		$('html,body').animate({
+            scrollTop: $('#'+to).offset().top
+        }, 800, "easeInOutExpo");
+	})
 });
 
 function randomIntFromInterval(min,max){
