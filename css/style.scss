@@ -7,8 +7,19 @@
 	height: 100%;width: 100%;
 	top: 0;left: 0;
 }
+%center{
+	top: 50%;
+    left: 50%;
+    width: 100%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+	text-align:center;
+}
 $btn-color:#72b3c3;
+$banner-color:#fff;
 $speed: 0.4s;
+$border-radius:10px;
+$top-border: $border-radius $border-radius 0 0;
 $easing:cubic-bezier(0.22, 0.61, 0.36, 1);
 // $animation: dash $speed linear infinite,fillin $speed linear infinite;
 @mixin animate($animation) {
@@ -25,6 +36,41 @@ $easing:cubic-bezier(0.22, 0.61, 0.36, 1);
 	font-family:fantasy,Microsoft JhengHei; 
 }
 
+@mixin btn($color,$easing){
+    background: transparent;
+    border: 1px solid $color;
+    color: $color;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2vw;
+	@include transition(0.6s,$easing);
+}
+
+@mixin rotate{
+	from{
+		transform:rotate(0deg);
+		-webkit-transform:rotate(0deg);
+	}
+	to{
+		transform:rotate(360deg);
+		-webkit-transform:rotate(360deg);
+	}
+}
+
+@keyframes roll{
+	@include rotate;
+}
+@-webkit-keyframes roll{
+	@include rotate;
+}
+
+
+.img{
+	display:block;
+	width:100%;
+	height:auto;
+}
+
 body{
 	@include fontFamily;
 	@extend %full;
@@ -33,9 +79,69 @@ body{
 		@extend %absolute;
 		.page{
 			position: relative;
-			background: rgba(255, 229, 182, 1);
-			height: 100vh;
+			background: rgba(87, 86, 107, 0.8);
 			z-index: 100;
+			height: 100vh !important;
+
+			.content{
+				background:rgba(255, 255, 255, 0.4);
+				@extend %center;
+				width: 80%;
+				margin: 0 auto;
+				max-width: 1200px;
+				border-radius:$border-radius;
+				border: 1px solid $banner-color;
+
+				.banner{
+					position:relative;
+					.img{
+						border-radius:$top-border;
+					}
+					.mask{
+						border-radius:$top-border;
+						@extend %absolute;
+						//border: 1px solid $banner-color;
+    					box-sizing: border-box;
+						background: rgba($banner-color, 0.4);
+					}
+					h3{
+						@extend %center;
+						color:#FFF;
+						font-size: 4vw;
+						margin: 0;
+					}
+				}
+
+				.btn-wrapper{
+					text-align: center;
+					// margin-top: 5vh;
+					.btn{
+						@include btn(#FFF,$easing);	
+						padding: 20px 25px;
+						width: 30%;
+						margin: 5vw;
+						overflow: hidden;
+						position:relative;
+						span{
+							position:relative;
+							z-index: 10;
+						}
+						.sanga{
+							z-index: -1;
+							@extend %absolute;
+							height: 1000px;
+    						width: 1000px;
+							border-radius:45%;
+							opacity: 0.6;
+							top: 60%;
+    						left: -300px;
+							@include transition(0.5s);
+							@include animate(roll 3s linear infinite);
+						}
+					}
+
+				}
+			}
 
 			&#main{
 				@extend %absolute;
@@ -59,12 +165,8 @@ body{
 						vertical-align: middle;
 					}
 				}
-				.content{
-					top: 50%;
-				    left: 50%;
-				    width: 100%;
-				    position: absolute;
-				    transform: translate(-50%,-50%);
+				#main-content{
+					@extend %center;
 					h1{
 				    	// transform: translate(0,-50px);
 						font-size: 0vw;
@@ -81,32 +183,47 @@ body{
 					}
 					#next_btn{
 						@include fontFamily;
+						@include btn($btn-color,$easing);	
 				    	transform: translate(0,-50px);
 						opacity: 0;
+						margin-top: 3vh;
 						padding: 10px 30px;
-					    background: transparent;
-					    border: 1px solid $btn-color;
-					    border-radius: 30px;
-					    color: $btn-color;
-					    font-size: 2vw;
-					    font-weight: bold;
-					    cursor: pointer;
-						@include transition(0.6s,$easing);
+    					border-radius: 30px;
 						&.active{
 							opacity: 1;
 				    		transform: translate(0,0);
 						}
 						&:hover{
-							// border-color:#FFF;
 							color:#FFF;
 							background-color:$btn-color;
 						}
 					}
 				}
 			}
+		}
 
+		.msg{
+			background:rgba(#FFF,0.9);
+			.msg-content{
+				@extend %center;
+				text-align: left;
+				p{
+					margin:20px auto;
+					padding-left: 5px;
+					border-left: 3px solid rgb(233, 30, 99);
+					width: 80%;
+					max-width: 600px;
+				}
+			}
 		}
 
 	}
 }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-device-width : 600px) {
+	/* Styles */
+	.page{
+		// height: 0px	 !important;
+	}
+}

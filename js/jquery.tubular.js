@@ -72,7 +72,7 @@
             resize();
             if (options.mute) e.target.mute();
             e.target.seekTo(options.start);
-            e.target.setVolume(30);
+            e.target.setVolume(3);
             e.target.playVideo();
         }
 
