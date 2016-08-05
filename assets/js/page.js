@@ -52,6 +52,10 @@ $(function(){
             scrollTop: $('#'+to).offset().top
         }, 800, "easeInOutExpo");
 	})
+
+	//wrap msg onload
+	wrap_msg();
+	$(window).resize(wrap_msg);
 });
 
 var inited = false;
@@ -67,6 +71,18 @@ function init(){
 		$mask.hide();
 		$('.main-content h1').addClass('active');
 		setTimeout(function(){$('.main-content #next_btn').addClass('active');},500);
+	});
+}
+
+function wrap_msg(){
+	var vh = $(window).height();
+	$('.msg').each(function(i,block){
+		var $block = $(block);
+		var bh = $block.height();
+		if( bh < vh){
+			offset = (vh - bh) / 2;
+			$block.css('padding',offset+'px 0px');
+		}
 	});
 }
 
