@@ -5,7 +5,10 @@ $(function(){
 		mute: false,
 		start:30
 	})
-	.on('ready',init); 
+	.on('ready',function(){
+		init();
+		$('#tubular-container').css('opacity',1);
+	}); 
 	setTimeout(init,10000); //use image instead
 
 	//sanga effects

@@ -63,7 +63,9 @@ $easing:cubic-bezier(0.22, 0.61, 0.36, 1);
 @-webkit-keyframes roll{
 	@include rotate;
 }
-
+#tubular-container{
+	opacity:0;
+}
 .clearfix{
 	clear:both;
 }

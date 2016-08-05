@@ -33,6 +33,9 @@ body .wrapper .page .content, body .wrapper .page .gift-content .banner h3 {
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg); } }
 
+#tubular-container {
+  opacity: 0; }
+
 .clearfix {
   clear: both; }
 
