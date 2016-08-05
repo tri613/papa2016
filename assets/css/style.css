@@ -60,6 +60,10 @@ body .wrapper .page .content, body .wrapper .page .gift-content .banner h3 {
 
 body {
   font-family: fantasy,Microsoft JhengHei;
+  background-image: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   margin: 0;
   padding: 0; }
   body .wrapper .page {

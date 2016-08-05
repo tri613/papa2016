@@ -95,6 +95,10 @@ $easing:cubic-bezier(0.22, 0.61, 0.36, 1);
 body{
 	@include fontFamily;
 	@extend %full;
+	background-image:url('../images/bg.png');
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 	margin:0; padding:0;
 	.wrapper{
 		@extend %absolute;

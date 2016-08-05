@@ -5,16 +5,8 @@ $(function(){
 		mute: false,
 		start:30
 	})
-	.on('ready',function(){
-		var $mask = $('#fixed-mask');
-		$mask.animate({
-			height:0,
-		},800,'easeInOutExpo',function(){
-			$mask.hide();
-			$('.main-content h1').addClass('active');
-			setTimeout(function(){$('.main-content #next_btn').addClass('active');},500);
-		});
-	}); 
+	.on('ready',init); 
+	setTimeout(init,10000); //use image instead
 
 	//sanga effects
 	$('.sanga').each(function(i,v){
@@ -58,6 +50,22 @@ $(function(){
         }, 800, "easeInOutExpo");
 	})
 });
+
+var inited = false;
+function init(){
+	if(inited){
+		return true;
+	}
+	inited = true;
+	var $mask = $('#fixed-mask');
+	$mask.animate({
+		height:0,
+	},800,'easeInOutExpo',function(){
+		$mask.hide();
+		$('.main-content h1').addClass('active');
+		setTimeout(function(){$('.main-content #next_btn').addClass('active');},500);
+	});
+}
 
 function randomIntFromInterval(min,max){
     return Math.random()*(max-min+1)+min;
