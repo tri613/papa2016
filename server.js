@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var port = process.env.PORT || 3000;
 
 //logging
 app.use(function(req, res, next){
@@ -16,6 +17,6 @@ app.get('/', function(req, res){
 	res.sendFile( path.join( __dirname, './index.html' ) );
 });
 
-app.listen(80, function () {
-  console.log('Papa2016 on port 80!');
+app.listen(port, function () {
+  console.log('Papa2016 on port '+ port || 3000 +'!');
 });
