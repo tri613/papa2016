@@ -9,7 +9,7 @@ $(function(){
 		init();
 		$('#tubular-container').css('opacity',1);
 	}); 
-	setTimeout(init,10000); //use image instead
+	setTimeout(init,5000); //use image instead
 
 	//sanga effects
 	$('.sanga').each(function(i,v){
