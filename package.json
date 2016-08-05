@@ -2,15 +2,20 @@
   "name": "papa2016",
   "version": "1.0.0",
   "description": "for my best daddy.",
-  "main": "index.html",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node ./server.js",
+    "web": "node ./server.js"
   },
   "author": "Trina Lu",
   "license": "ISC",
+  "repository": "https://github.com/tri613/papa2016.git",
   "devDependencies": {
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
   }
 }
