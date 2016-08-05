@@ -10,7 +10,7 @@ app.use(function(req, res, next){
 });
 
 //mount asset files
-app.use(express.static( path.join( __dirname, './assets') ));
+app.use('/assets',express.static( path.join( __dirname, './assets') ));
 
 //index page
 app.get('/', function(req, res){
