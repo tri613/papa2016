@@ -2,7 +2,7 @@ $(function(){
 	//youtube background
 	$('#main').tubular({
 		videoId: 'CYXG9rG0Jf0',
-		mute: true,
+		mute: false,
 		start:30
 	})
 	.on('ready',function(){
@@ -11,8 +11,8 @@ $(function(){
 			height:0,
 		},800,'easeInOutExpo',function(){
 			$mask.hide();
-			$('#main-content h1').addClass('active');
-			setTimeout(function(){$('#main-content #next_btn').addClass('active');},500);
+			$('.main-content h1').addClass('active');
+			setTimeout(function(){$('.main-content #next_btn').addClass('active');},500);
 		});
 	}); 
 
@@ -52,6 +52,7 @@ $(function(){
 	});
 	$('.msg-btn').click(function(){
 		var to = $(this).attr('data-value');
+		console.log(to);
 		$('html,body').animate({
             scrollTop: $('#'+to).offset().top
         }, 800, "easeInOutExpo");

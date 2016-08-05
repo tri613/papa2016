@@ -2,14 +2,14 @@ body {
   width: 100%;
   height: 100%; }
 
-.mask, body .wrapper, body .wrapper .page .content .banner .mask, body .wrapper .page .content .btn-wrapper .btn .sanga, body .wrapper .page#main {
+.mask, body .wrapper, body .wrapper .page .gift-content .banner .mask, body .wrapper .page .gift-content .btn-wrapper .btn .sanga, body .wrapper .page#main {
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0; }
 
-body .wrapper .page .content, body .wrapper .page .content .banner h3, body .wrapper .page#main #main-content, body .wrapper .msg .msg-content {
+body .wrapper .page .content, body .wrapper .page .gift-content .banner h3 {
   top: 50%;
   left: 50%;
   width: 100%;
@@ -32,6 +32,9 @@ body .wrapper .page .content, body .wrapper .page .content .banner h3, body .wra
   to {
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg); } }
+
+.clearfix {
+  clear: both; }
 
 .img {
   display: block;
@@ -63,29 +66,29 @@ body {
     position: relative;
     background: rgba(87, 86, 107, 0.8);
     z-index: 100;
-    height: 100vh !important; }
-    body .wrapper .page .content {
+    height: 100vh; }
+    body .wrapper .page .gift-content {
       background: rgba(255, 255, 255, 0.4);
       width: 80%;
       margin: 0 auto;
       max-width: 1200px;
       border-radius: 10px;
       border: 1px solid #fff; }
-      body .wrapper .page .content .banner {
+      body .wrapper .page .gift-content .banner {
         position: relative; }
-        body .wrapper .page .content .banner .img {
+        body .wrapper .page .gift-content .banner .img {
           border-radius: 10px 10px 0 0; }
-        body .wrapper .page .content .banner .mask {
+        body .wrapper .page .gift-content .banner .mask {
           border-radius: 10px 10px 0 0;
           box-sizing: border-box;
           background: rgba(255, 255, 255, 0.4); }
-        body .wrapper .page .content .banner h3 {
+        body .wrapper .page .gift-content .banner h3 {
           color: #FFF;
           font-size: 4vw;
           margin: 0; }
-      body .wrapper .page .content .btn-wrapper {
+      body .wrapper .page .gift-content .btn-wrapper {
         text-align: center; }
-        body .wrapper .page .content .btn-wrapper .btn {
+        body .wrapper .page .gift-content .btn-wrapper .btn {
           background: transparent;
           border: 1px solid #FFF;
           color: #FFF;
@@ -99,10 +102,10 @@ body {
           margin: 5vw;
           overflow: hidden;
           position: relative; }
-          body .wrapper .page .content .btn-wrapper .btn span {
+          body .wrapper .page .gift-content .btn-wrapper .btn span {
             position: relative;
             z-index: 10; }
-          body .wrapper .page .content .btn-wrapper .btn .sanga {
+          body .wrapper .page .gift-content .btn-wrapper .btn .sanga {
             z-index: -1;
             height: 1000px;
             width: 1000px;
@@ -117,16 +120,16 @@ body {
     body .wrapper .page#main {
       background: rgba(255, 229, 182, 0.26);
       text-align: center; }
-      body .wrapper .page#main #main-content h1 {
+      body .wrapper .page#main .main-content h1 {
         font-size: 0vw;
         color: transparent;
         margin: 0;
         transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
         -webkit-transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1); }
-        body .wrapper .page#main #main-content h1.active {
+        body .wrapper .page#main .main-content h1.active {
           font-size: 12vw;
           color: #FFF; }
-      body .wrapper .page#main #main-content #next_btn {
+      body .wrapper .page#main .main-content #next_btn {
         font-family: fantasy,Microsoft JhengHei;
         background: transparent;
         border: 1px solid #72b3c3;
@@ -141,10 +144,10 @@ body {
         margin-top: 3vh;
         padding: 10px 30px;
         border-radius: 30px; }
-        body .wrapper .page#main #main-content #next_btn.active {
+        body .wrapper .page#main .main-content #next_btn.active {
           opacity: 1;
           transform: translate(0, 0); }
-        body .wrapper .page#main #main-content #next_btn:hover {
+        body .wrapper .page#main .main-content #next_btn:hover {
           color: #FFF;
           background-color: #72b3c3; }
   body .wrapper .msg {
@@ -154,7 +157,9 @@ body {
     body .wrapper .msg .msg-content {
       text-align: left;
       width: 80%;
-      max-width: 600px; }
+      margin: 0 auto;
+      max-width: 600px;
+      padding-top: 20px; }
       body .wrapper .msg .msg-content p {
         margin: 20px auto;
         padding-left: 5px;
@@ -165,13 +170,49 @@ body {
         width: 100px;
         background: #e91e63;
         text-align: center; }
+    body .wrapper .msg .msg-btn {
+      position: absolute;
+      right: 2vw;
+      font-size: 15px !important;
+      padding: 10px;
+      width: 100px;
+      border-style: double !important;
+      font-family: monospace; }
+  body .wrapper #sherry .msg-btn {
+    background: transparent;
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2vw;
+    transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    -webkit-transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    border-top: transparent;
+    top: 0; }
+    body .wrapper #sherry .msg-btn:hover {
+      background-color: #ffc107;
+      color: #FFF; }
   body .wrapper #trina p {
     border-color: #ff5722; }
   body .wrapper #trina .by {
     background: #ffc107; }
+  body .wrapper #trina .msg-btn {
+    background: transparent;
+    border: 1px solid #e91e63;
+    color: #e91e63;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 2vw;
+    transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    -webkit-transition: all 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    bottom: 0;
+    border-bottom: transparent; }
+    body .wrapper #trina .msg-btn:hover {
+      background-color: #e91e63;
+      color: #FFF; }
   body .wrapper footer {
-    font-family: Microsoft JhengHei;
-    font-size: 16px;
+    font-family: monospace;
+    font-size: 14px;
     text-align: right;
     padding: 0 10px;
     color: #FFF;
@@ -182,4 +223,14 @@ body {
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-device-width: 600px) {
-  /* Styles */ }
+  /* Styles */
+  .page.msg {
+    min-height: 100vh !important;
+    height: auto !important;
+    padding-bottom: 20px; }
+    .page.msg .msg-content {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: initial;
+      margin: 0 auto; } }

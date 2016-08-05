@@ -9,6 +9,15 @@ gulp.task('sass',function(){
     .pipe(browserSync.stream());
 });
 
+gulp.task('watchstyle',['sass'],function(){
+	browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+	gulp.watch('./css/*.scss',['sass']);
+});
+
 gulp.task('serve',['sass'],function() {
     browserSync.init({
         server: {
